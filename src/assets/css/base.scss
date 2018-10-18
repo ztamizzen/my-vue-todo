@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Charmonman:400,700|K2D:200,300,400,600,700');
+
+html {
+    font-size: 10px;
+    margin: 0;
+}
+
+body {
+    font-family: K2D, sans-serif;
+    font-size: 1.6rem;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-family: Charmonman, cursive;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+h2 {
+    font-family: K2D, sans-serif;
+    font-size: 32px;
+    font-weight: 100;
+    line-height: 1.6;
+}
+
+h3 {
+    font-family: K2D, sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+a {
+    font-family: K2D, sans-serif;
+    font-weight: 500;
+}
