@@ -1,6 +1,11 @@
+export const STORAGE_KEY = "my-vue-todo";
+
 export const mutations = {
   addTodo(state, text) {
-    let nextId = state.todos[state.todos.length - 1].id + 1;
+    let nextId = 1;
+    if (state.todos.length) {
+      nextId = state.todos[state.todos.length - 1].id + 1;
+    }
     let todo = {
       id: nextId,
       text,

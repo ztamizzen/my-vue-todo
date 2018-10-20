@@ -18,10 +18,13 @@ describe("store.js", () => {
     };
     let oneTodo = getters.doneTodos(state);
     let oneTodoCount = getters.doneTodosCount(state, getters);
+
+    let activeTodoCount = getters.activeTodosCount(state, getters);
     let oneTodo2 = getters.activeTodos(state);
 
     expect(oneTodo.length).toBe(1);
     expect(oneTodoCount).toBe(1);
+    expect(activeTodoCount).toBe(1);
     expect(oneTodo2.length).toBe(1);
   });
 

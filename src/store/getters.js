@@ -8,6 +8,9 @@ export const getters = {
   activeTodos: state => {
     return state.todos.filter(todo => !todo.done);
   },
+  activeTodosCount: (state, getters) => {
+    return getters.activeTodos.length;
+  },
   getTodoById: state => id => {
     return state.todos.find(todo => todo.id === id);
   },

@@ -1,6 +1,6 @@
 <template>
     <div id="todos">
-        <h2>Todos to do: {{ todos.length }}</h2>
+        <h2>Todos to do: {{ activeTodosCount }}</h2>
         <ul class="todo-list">
             <li v-for="(todo, index) in todos" :key="index" class="todo-list__list-item">
               <a href="#" @click.prevent="toggleTodo(todo)"
@@ -11,6 +11,7 @@
             </li>
         </ul>
         <add-todo />
+        <button @click="clearCompleted()">Clear finished</button>
     </div>
 </template>
 
@@ -25,16 +26,10 @@ export default {
   },
   computed: {
     ...mapState(["todos"]),
-    ...mapGetters([
-      "doneTodos",
-      "doneTodosCount",
-      "activeTodos",
-      "getTodoById",
-      "getNextId"
-    ])
+    ...mapGetters(["doneTodos", "doneTodosCount", "activeTodos", "activeTodosCount", "getTodoById", "getNextId"])
   },
   methods: {
-    ...mapActions(["toggleTodo", "removeTodo"])
+    ...mapActions(["toggleTodo", "removeTodo", "clearCompleted"])
   }
 };
 </script>
