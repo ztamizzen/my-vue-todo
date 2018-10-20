@@ -1,32 +1,40 @@
 <template>
-    <div id="todos">
+    <div id="todos" class="d-flex flex-column align-items-center">
         <h2>Todos to do: {{ activeTodosCount }}</h2>
         <ul class="todo-list">
-            <li v-for="(todo, index) in todos" :key="index" class="todo-list__list-item">
-              <a href="#" @click.prevent="toggleTodo(todo)"
-                 class="todo-list__list-item-link"
-                 :class="{'todo-list__list-item-link-done': todo.done }">{{ todo.text }}</a>
-              <a href="#" @click.prevent="removeTodo(todo)"
-                 class="todo-list__list-item_remove-link">&times;</a>
+            <li v-for="(todo, index) in todos" :key="index" class="todo-list__list-item d-flex justify-content-between align-items-center">
+              <toggle-todo-link :todo="todo" />
+              <remove-todo-link :todo="todo" />
             </li>
         </ul>
         <add-todo />
-        <button @click="clearCompleted()">Clear finished</button>
+        <b-button variant="danger" @click="clearCompleted()" class="mb-3">Clear finished</b-button>
     </div>
 </template>
 
 <script>
 import AddTodo from "@/components/AddTodo";
+import ToggleTodoLink from "@/components/ToggleTodoLink";
+import RemoveTodoLink from "@/components/RemoveTodoLink";
 import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Todo",
   components: {
-    AddTodo
+    AddTodo,
+    ToggleTodoLink,
+    RemoveTodoLink
   },
   computed: {
     ...mapState(["todos"]),
-    ...mapGetters(["doneTodos", "doneTodosCount", "activeTodos", "activeTodosCount", "getTodoById", "getNextId"])
+    ...mapGetters([
+      "doneTodos",
+      "doneTodosCount",
+      "activeTodos",
+      "activeTodosCount",
+      "getTodoById",
+      "getNextId"
+    ])
   },
   methods: {
     ...mapActions(["toggleTodo", "removeTodo", "clearCompleted"])
@@ -49,14 +57,11 @@ export default {
     border-radius: 1rem;
     box-shadow: 0 1rem 1rem rgba(65, 184, 131, 0.5);
     list-style: none;
-    margin: 0 auto 1rem;
+    margin: 1rem;
     padding: 1rem;
     text-align: left;
-    width: fit-content;
 
     &__list-item {
-      display: flex;
-      justify-content: space-between;
       padding: 0.5rem 1rem;
 
       &-link {
