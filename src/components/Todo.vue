@@ -1,5 +1,5 @@
 <template>
-    <div id="todos" class="d-flex flex-column align-items-center">
+    <div id="todos" class="d-flex flex-column align-items-center mb-5">
         <h2>Todos to do: {{ activeTodosCount }}</h2>
         <ul class="todo-list">
             <li v-for="(todo, index) in todos" :key="index" class="todo-list__list-item d-flex justify-content-between align-items-center">
@@ -8,7 +8,9 @@
             </li>
         </ul>
         <add-todo />
-        <b-button variant="danger" @click="clearCompleted()" class="mb-3">Clear finished</b-button>
+        <transition name="bounce" mode="out-in">
+          <b-button v-if="showClear" variant="danger" @click="clearCompleted()" class="mb-3">Clear finished</b-button>
+        </transition>
     </div>
 </template>
 
@@ -34,7 +36,10 @@ export default {
       "activeTodosCount",
       "getTodoById",
       "getNextId"
-    ])
+    ]),
+    showClear() {
+      return this.doneTodosCount > 0;
+    }
   },
   methods: {
     ...mapActions(["toggleTodo", "removeTodo", "clearCompleted"])
@@ -79,6 +84,24 @@ export default {
         text-decoration: none;
       }
     }
+  }
+}
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>
