@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1540031881115" clover="3.2.0">
-  <project timestamp="1540031881117" name="All files">
+<coverage generated="1540040332379" clover="3.2.0">
+  <project timestamp="1540040332379" name="All files">
     <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="6" methods="10" coveredmethods="10" elements="37" coveredelements="37" complexity="0" loc="21" ncloc="21" packages="1" files="2" classes="2">
       <file name="getters.js" path="C:\Users\Mats\projects\vue-todo\src\store\getters.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>

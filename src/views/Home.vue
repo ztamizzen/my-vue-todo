@@ -29,7 +29,7 @@ export default {
   img {
     margin-right: 1rem;
     margin-top: -0.7rem;
-    shape-outside: polygon(100% 0%, -5% 0.00%, 48% 99%);
+    shape-outside: polygon(100% 0%, -5% 0%, 48% 99%);
   }
 }
 </style>
