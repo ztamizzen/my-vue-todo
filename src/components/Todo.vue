@@ -51,6 +51,7 @@ export default {
 #todos {
   background-image: linear-gradient(to top, #35495e, #41b883);
   border: 2px solid #35495e;
+  box-shadow: 0 1rem 1rem -0.5rem #00000070;
 
   h2 {
     color: #eee;

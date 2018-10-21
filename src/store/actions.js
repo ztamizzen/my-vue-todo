@@ -23,5 +23,7 @@ export const actions = {
     state.todos.filter(todo => todo.done).forEach(todo => {
       commit("removeTodo", todo);
     });
-  }
+  },
+  increment: ({ commit }) => commit("increment"),
+  decrement: ({ commit }) => commit("decrement")
 };

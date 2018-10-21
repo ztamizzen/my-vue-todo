@@ -104,4 +104,17 @@ describe("HelloWorld.vue", () => {
     mutations.removeTodo(state, state.todos[3]);
     expect(state.todos.length).toBe(2);
   });
+
+  it("should increment and decrement", () => {
+    const state = {
+      count: 0
+    };
+    mutations.increment(state);
+    expect(state.count).toBe(1);
+    mutations.increment(state);
+    expect(state.count).toBe(2);
+
+    mutations.decrement(state);
+    expect(state.count).toBe(1);
+  });
 });

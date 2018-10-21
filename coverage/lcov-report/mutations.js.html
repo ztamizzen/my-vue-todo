@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>16/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>16/18</span>
       </div>
     </div>
   </div>
@@ -73,7 +73,33 @@
 28
 29
 30
-31</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -91,7 +117,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -101,10 +133,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const STORAGE_KEY = "my-vue-todo";
 &nbsp;
+// All mutations should be immutable.
 export const mutations = {
   addTodo(state, text) {
     let nextId = 1;
@@ -116,30 +167,54 @@ export const mutations = {
       text,
       done: false
     };
-    state.todos = [...state.todos, todo];
+    state.todos = immutablePush(state.todos, todo);
   },
   toggleTodo(state, todo) {
     let index = state.todos.indexOf(todo);
     if (index !== -1) {
-      todo.done = !todo.done;
+      // Replaces the existing Todo with a new Todo with the same "id" and "text" but with "done" toggled.
+      // Returns a new array.
+      state.todos = immutableSplice(state.todos, index, 1, {
+        id: todo.id,
+        text: todo.text,
+        done: !todo.done
+      });
     }
   },
   removeTodo(state, todo) {
     let index = state.todos.indexOf(todo);
     if (index !== -1) {
-      state.todos = state.todos
-        .slice(0, index)
-        .concat(state.todos.slice(index + 1));
+      state.todos = immutableDelete(state.todos, index);
     }
+  },
+  increment(state) {
+<span class="cstat-no" title="statement not covered" >    state.count++;</span>
+  },
+  decrement(state) {
+<span class="cstat-no" title="statement not covered" >    state.count--;</span>
   }
 };
+&nbsp;
+// https://vincent.billey.me/pure-javascript-immutable-array/
+// ES2015
+function immutablePush(arr, newEntry) {
+  return [...arr, newEntry];
+}
+&nbsp;
+function immutableSplice(arr, start, deleteCount, ...items) {
+  return [...arr.slice(0, start), ...items, ...arr.slice(start + deleteCount)];
+}
+&nbsp;
+function immutableDelete(arr, index) {
+  return arr.slice(0, index).concat(arr.slice(index + 1));
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Oct 20 2018 14:58:52 GMT+0200 (Västeuropa, sommartid)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 21 2018 13:15:25 GMT+0200 (Västeuropa, sommartid)
 </div>
 </div>
 <script src="prettify.js"></script>
