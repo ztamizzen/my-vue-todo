@@ -1,3 +1,9 @@
+import {
+  immutablePush,
+  immutableSplice,
+  immutableDelete
+} from "./helpers/immutable";
+
 export const STORAGE_KEY = "my-vue-todo";
 
 // All mutations should be immutable.
@@ -39,17 +45,3 @@ export const mutations = {
     state.count--;
   }
 };
-
-// https://vincent.billey.me/pure-javascript-immutable-array/
-// ES2015
-function immutablePush(arr, newEntry) {
-  return [...arr, newEntry];
-}
-
-function immutableSplice(arr, start, deleteCount, ...items) {
-  return [...arr.slice(0, start), ...items, ...arr.slice(start + deleteCount)];
-}
-
-function immutableDelete(arr, index) {
-  return arr.slice(0, index).concat(arr.slice(index + 1));
-}

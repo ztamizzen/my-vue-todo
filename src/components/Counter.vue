@@ -25,9 +25,5 @@ export default {
   methods: {
     ...mapActions(["increment", "decrement"])
   }
-}
+};
 </script>
-
-<style>
-
-</style>

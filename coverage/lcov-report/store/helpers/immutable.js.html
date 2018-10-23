@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for components/Counter.vue</title>
+    <title>Code coverage report for store/helpers/immutable.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="..\prettify.css" />
-    <link rel="stylesheet" href="..\base.css" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(..\sort-arrow-sprite.png);
+            background-image: url(..\..\sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\index.html">All files</a> / <a href="index.html">components</a> Counter.vue
+      <a href="..\..\index.html">All files</a> / <a href="index.html">store/helpers</a> immutable.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
   </div>
@@ -72,21 +72,16 @@
 27
 28
 29
-30</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+30
+31
+32
+33
+34
+35
+36
+37</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -94,42 +89,68 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-    &lt;b-container fluid&gt;
-        &lt;b-row&gt;
-            &lt;b-col&gt;
-                &lt;h2&gt;Counter is {{ count }}&lt;/h2&gt;
-            &lt;/b-col&gt;
-            &lt;div class="w-100"&gt;&lt;/div&gt;
-            &lt;b-col md="3" offset-md="3"&gt;
-                &lt;b-button id="increment" @click="increment" variant="primary"&gt;Increment&lt;/b-button&gt;
-            &lt;/b-col&gt;
-            &lt;b-col md="3"&gt;
-                &lt;b-button id="decrement" @click="decrement" variant="warning"&gt;Decrement&lt;/b-button&gt;
-            &lt;/b-col&gt;
-        &lt;/b-row&gt;
-    &lt;/b-container&gt;
-&lt;/template&gt;
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// https://vincent.billey.me/pure-javascript-immutable-array/
+export function immutableArrayCopy(arr) {
+  return [...arr];
+}
 &nbsp;
-&lt;script&gt;
-import { mapState, mapActions } from "vuex";
-export default {
-  name: "Counter",
-  computed: {
-    ...mapState(["count"])
-  },
-  methods: {
-    ...mapActions(["increment", "decrement"])
-  }
-};
-&lt;/script&gt;
+export function immutablePop(arr) {
+  return arr.slice(0, -1);
+}
+&nbsp;
+export function immutableShift(arr) {
+  return arr.slice(1);
+}
+&nbsp;
+export function immutableUnshift(arr, newEntry) {
+  return [newEntry, ...arr];
+}
+&nbsp;
+export function immutableSort(arr, compareFunction) {
+  return [...arr].sort(compareFunction);
+}
+&nbsp;
+export function immutableReverse(arr) {
+  return [...arr].reverse();
+}
+&nbsp;
+export function immutablePush(arr, newEntry) {
+  return [...arr, newEntry];
+}
+&nbsp;
+export function immutableSplice(arr, start, deleteCount, ...items) {
+  return [...arr.slice(0, start), ...items, ...arr.slice(start + deleteCount)];
+}
+&nbsp;
+export function immutableDelete(arr, index) {
+  return arr.slice(0, index).concat(arr.slice(index + 1));
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
@@ -139,7 +160,7 @@ export default {
   generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 22 2018 20:59:15 GMT+0200 (Västeuropa, sommartid)
 </div>
 </div>
-<script src="..\prettify.js"></script>
+<script src="..\..\prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -147,6 +168,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="..\sorter.js"></script>
+<script src="..\..\sorter.js"></script>
 </body>
 </html>
